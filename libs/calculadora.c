@@ -216,7 +216,7 @@ void introducirecuacion(char* ecu) {
             limpiarBuffer();
             confirmacion=Amayus(confirmacion);
             if(confirmacion!='S' && confirmacion!='N')
-                printf("\Choose a correct option: ");
+                printf("\nChoose a correct option: ");
         }while(confirmacion!='S' && confirmacion!='N');
 
         if(confirmacion=='S'){

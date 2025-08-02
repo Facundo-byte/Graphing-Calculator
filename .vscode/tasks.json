@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build C Project",
+      "type": "shell",
+      "command": "gcc",
+      "args": [
+        "main.c",
+        "libs/arbol_math.c",
+        "libs/Archivos.c",
+        "libs/calculadora_bmp.c",
+        "libs/calculadora.c",
+        "libs/Vector.c",
+        "-o",
+        "calculadora.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
