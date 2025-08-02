@@ -31,20 +31,20 @@ int GuardaArchivos(ecuacion* ecu, size_t ce, int* band){
     int i=0, nombandera=1;
     FILE* pf1, *pf;
     limpiarPantalla();
-    printf("\n--- Guardar Archivo ---\n\n");
+    printf("\n--- Save File ---\n\n");
 
     if(ce==0){
-        printf("No hay ecuaciones para guardadas\n");
+        printf("There are no saved equations\n");
         return 0;
     }
 
-    printf("Elija el nombre con el que se va a guardar el archivo (recomendacion:sin la extension .txt): ");
+    printf("Choose the name you are gonna save the file with (recomendation: without the .txt extension): ");
     do{
         fgets(nomArch,NOM_ARCH, stdin);
         quitarenter(nomArch);
         p_nomarch=nomArch;
         if(*p_nomarch=='\0')
-            printf("Ingrese un nombre valido para el archivo(recomendacion: sin la extension .txt): ");
+            printf("Enter a valid name for the file(recomendation: without the .txt extension): ");
     }while(*p_nomarch=='\0');
 
     strcpy(nomArch,strcat(nomArch,".txt"));
@@ -52,7 +52,7 @@ int GuardaArchivos(ecuacion* ecu, size_t ce, int* band){
     pf = fopen(nomArch, "wt");
 
     if(!pf){
-        printf("No se pudo crear el archivo.\n");
+        printf("File couldn't be created.\n");
         return 1;
     }
 
@@ -65,7 +65,7 @@ int GuardaArchivos(ecuacion* ecu, size_t ce, int* band){
 
     pf1= fopen("NombresArchivos.txt", "a+t");
     if(!pf1){
-        printf("No se pudo crear/abrir el archivo de nombres.\n");
+        printf("Names file couldn't be created/read.\n");
         return 1;
     }
     rewind(pf1);
@@ -87,7 +87,7 @@ int GuardaArchivos(ecuacion* ecu, size_t ce, int* band){
     fclose(pf);
     fclose(pf1);
 
-    printf("Archivo guardado correctamente.\n");
+    printf("File saved correctly.\n");
 return 0;
 }
 
@@ -97,23 +97,23 @@ int CargarArchivo(ecuacion* ecu, size_t *cecu) {
     char lineaarch[TAM_ECU], lineausuario[TAM_ECU];
 
     limpiarPantalla();
-    printf("\n--- Cargar Archivo ---\n\n");
+    printf("\n--- Load File ---\n\n");
 
     pf = fopen("NombresArchivos.txt", "rt");
     if (!pf) {
-        printf("No se encontraron archivos guardados.\n");
-        printf("\n\nPresione enter para continuar...");
+        printf("No saved files found.\n");
+        printf("\n\nPress enter to continue...");
         getchar();
         return 1;
     }
 
     while (fgets(lineaarch, TAM_ECU, pf)) {
-        printf("Archivo %d: %s\n", i+1, lineaarch);
+        printf("File %d: %s\n", i+1, lineaarch);
         i++;
     }
     rewind(pf);
 
-    printf("¿Que archivo desea cargar en el programa? \n(nombre del archivo sin la extension .txt): ");
+    printf("¿Which file do you want to load to the program? \n(name of the file without the .txt extension): ");
     do {
         fgets(lineausuario, TAM_ECU, stdin);
         quitarenter(lineausuario);
@@ -128,7 +128,7 @@ int CargarArchivo(ecuacion* ecu, size_t *cecu) {
             }
         }
         if (band_arch) {
-            printf("No se encontro un archivo con ese nombre, intente nuevamente: ");
+            printf("No file with that name was found, please try again: ");
         }
     } while (band_arch);
 
@@ -140,7 +140,7 @@ int CargarArchivo(ecuacion* ecu, size_t *cecu) {
     while (fgets(lineaarch, TAM_ECU, pf))
         ingresarecu(ecu, cecu, 0, lineaarch);
 
-    puts("Archivo cargado correctamente.");
+    puts("File loaded correctly.");
     fclose(pf);
 
     return 0;
@@ -151,12 +151,12 @@ int borrarArchivos(){
     char linea[TAM_ECU];
     pf_arch=fopen("NombresArchivos.txt","rt");
     limpiarPantalla();
-    printf("\n--- Borrar Archivos ---\n\n");
+    printf("\n--- Delete files ---\n\n");
     if(!pf_arch){
-        printf("No se encontraron archivos creados, se borraron ecuaciones guardadas.\n");
+        printf("No created files found, saved equations were deleted.\n");
         return 1;
     }
-    printf("Se borraran los siguientes archivos:\n");
+    printf("The next files will be deleted: \n");
     while(fgets(linea,TAM_ECU,pf_arch)){
         printf("%s", linea);
         quitarenter(linea);

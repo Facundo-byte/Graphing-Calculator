@@ -19,16 +19,16 @@ int main()
                 if(cecu!=0){
                     limpiarPantalla();
                     subop = pedir_opcion("ABX",
-                    "--- INGRESAR ECUACION ---\n"
-                    "[A] - Agregar ecuacion nueva.\n"
-                    "[B] - Cambiar ecuacion existente.\n"
-                    "[X] - Volver.\n"
-                    "Ingrese una opcion: "
+                    "--- ENTER EQUATION ---\n"
+                    "[A] - Add new equation.\n"
+                    "[B] - Change existing equation.\n"
+                    "[X] - Return.\n"
+                    "Enter an option: "
                     );
 
                     if(subop=='B'){
                         ingresarecu(ecuaciones, &cecu,2,0);
-                        printf("\nEcuacion modificada correctamente.\n");
+                        printf("\nEquation modified correctly.\n");
                         EnterParaSalir();
                         break;
                     }
@@ -37,8 +37,8 @@ int main()
                     }
                 }
                 if(ingresarecu(ecuaciones, &cecu,1,0))
-                    puts("No se pudo aniadir ecuacion");
-                printf("\nEcuacion ingresada correctamente.\n");
+                    puts("Equation couldn't be added");
+                printf("\nEquation added correctly.\n");
                 EnterParaSalir();
                 break;
             case 'B':
@@ -52,7 +52,7 @@ int main()
                     }
                 }
                 else
-                    puts("No podes guardar mas ecuaciones. Utilice la opcion [E] para borrar las ecuaciones guardadas");
+                    puts("You cant save more equations. Use the option [E] to delete the saved equations");
 
                 EnterParaSalir();
                 break;
@@ -68,13 +68,13 @@ int main()
             case 'F':
                 if(cecu != 0){
                     limpiarPantalla();
-                    printf("--- EVALUAR ECUACION ---\n\n");
+                    printf("--- EVALUATE EQUATION ---\n\n");
                     subop = pedir_opcion("ABCX",
-                        "[A] - Ingresar una tabla de valores.\n"
-                        "[B] - Ingresar un solo valor para una incognita.\n"
-                        "[C] - Buscar raices.\n"
-                        "[X] - Volver.\n"
-                        "Ingrese una opcion: "
+                        "[A] - Enter a table of values.\n"
+                        "[B] - Enter a single value for the variable.\n"
+                        "[C] - Search for roots.\n"
+                        "[X] - Return.\n"
+                        "Enter an option: "
                     );
                     if(subop=='A'){
                         EvaluarListaDeValores(ecuaciones, cecu);
@@ -89,13 +89,13 @@ int main()
                     }
                 }
                 else {
-                    puts("No hay ecuaciones cargadas para evaluar.");
+                    puts("There are no saved equations to evaluate.");
                     EnterParaSalir();
                 }
                 break;
             case 'G':
                 if(cecu == 0) {
-                    puts("No hay ecuaciones cargadas para graficar.");
+                    puts("There are no saved equations to graph.");
                     EnterParaSalir();
                     break;
                 }
@@ -107,10 +107,10 @@ int main()
                 break;
             case 'X':
                 subop = pedir_opcion("SN",
-                    "Seguro quieres salir? S/N: "
+                    "Are you sure you want to exit? S/N: "
                 );
                 if(subop=='S'){
-                    printf("\nSaliendo del programa...\n");
+                    printf("\nClosing the program...\n");
                     salir=0;
                 }
                 break;
