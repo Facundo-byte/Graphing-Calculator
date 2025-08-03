@@ -2,7 +2,7 @@
 
 • [Details](#details) • [Requirements](#requirements) • [How-to-Run](#how-to-run-the-program) • [Credits](#credits)
 
- [demonstration video](https://www.youtube.com/watch?v=0EUGbCJh7-o)
+ [demonstration video](https://youtu.be/S7_gLxXuiQI)
 
 This project is an **interactive graphical calculator developed in C language**, which allows you to write, solve, and graph equations with up to **two variables (x, y)**. The program offers a simple menu-driven interface where users can manage their equations, solve them using value tables, and generate graphs in **BMP format**.  
 This was achieved through the use of **Expression Trees, Dynamic Memory, Abstract Data Types (ADT), and Good Programming Practices**.
@@ -59,6 +59,7 @@ gcc -o calculator main.c -lm
 
 ## Credits
 Project made in group with Bonfigli Leonardo, Deiriz Matias Ezequiel and Falce Ezequiel Pablo for the assignment Topicos de Programacion of UNLAM
+
 
 
 
